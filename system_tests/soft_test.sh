@@ -1,4 +1,5 @@
 #!/bin/bash
+#script aimed to test target server
 
 APP_ARG=$1
 
