@@ -4,7 +4,7 @@ echo "*****************"
 echo "**** build docker image***** "
 echo "*****************"
 TAG=$1
-docker build -t "go-builder:$TAG" .
+docker build -t "go-builder:$TAG" build/
 
 
 echo "******************"
