@@ -6,13 +6,13 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                agent {
-                    docker {
-                        label 'docker'
-                        image 'python"3.8.0'
-                    }
+            agent {
+                docker {
+                    image 'python"3.8.0'
+                    label 'docker'
                 }
+            }
+            steps {
                 // git branch: 'main', url: 'https://github.com/and-blk/jenkins-test.git'
                 sh """
                     cat /etc/*release*
