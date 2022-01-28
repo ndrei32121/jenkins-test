@@ -9,7 +9,7 @@ pipeline {
                     sudo bash system_tests/soft_test.sh docker
                     sudo bash system_tests/soft_test.sh mkdir
                     sudo bash system_tests/soft_test.sh docker-compose
-                    sudo bash build/build.sh $BUILD_TAG
+                    sudo bash build/build.sh $currentBuild.number
                 '''
             }
         }
