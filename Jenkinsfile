@@ -1,8 +1,9 @@
 pipeline {
-    agent {
-        agent { label 'docker' }
-        // docker { image 'python:3.8.0' }
-    }
+    agent any
+    // agent {
+    //     agent { label 'docker' }
+    //     // docker { image 'python:3.8.0' }
+    // }
 
     stages {
         stage('Build') {
