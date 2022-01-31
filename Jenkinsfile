@@ -1,8 +1,7 @@
 pipeline {
     agent {
-        // agent { label 'docker' }
         docker { 
-            image 'python:3.8.0' 
+            // image 'python:3.8.0'
             label "docker-jnlp"
         }
         
@@ -10,24 +9,12 @@ pipeline {
 
     stages {
         stage('Build') {
-            // agent {
-            //     docker {
-            //         image 'python"3.8.0'
-            //         label 'docker'
-            //     }
-            // }
             steps {
-                // git branch: 'main', url: 'https://github.com/and-blk/jenkins-test.git'
                 sh """
                     cat /etc/*release*
                     python --version
                     hostname
                 """
-                    // sudo bash system_tests/soft_test.sh docker
-                    // sudo bash system_tests/soft_test.sh mkdir
-                    // sudo bash system_tests/soft_test.sh docker-compose
-                    // echo ${currentBuild.number}
-                    // sudo bash build/build.sh ${currentBuild.number}
             }
         }
     }
