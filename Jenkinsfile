@@ -14,7 +14,7 @@ pipeline {
                 sh """
                     cat /etc/*release*
                     hostname
-                    python --version
+                    sleep 3m
                 """
             }
         }
