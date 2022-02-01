@@ -1,9 +1,10 @@
 pipeline {
     agent {
-        docker { 
-            // image 'python:3.8.0'
-            label "docker-ssh"
-        }
+        label "docker-ssh"
+        // docker { 
+        //     image 'python:3.8.0'
+        //     label "docker-ssh"
+        // }
         
     }
 
@@ -12,8 +13,8 @@ pipeline {
             steps {
                 sh """
                     cat /etc/*release*
-                    python --version
                     hostname
+                    python --version
                 """
             }
         }
