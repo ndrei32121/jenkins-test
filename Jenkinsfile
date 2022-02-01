@@ -2,8 +2,8 @@ pipeline {
     agent {
         // label "docker-ssh"
         docker { 
-            image 'python:3.8.0'
-            // label "docker-ssh"
+            // image 'python:3.8.0'
+            label "docker-ssh"
         }
         
     }
