@@ -14,7 +14,7 @@ pipeline {
                 sh """
                     cat /etc/*release*
                     hostname
-                    sleep 3m
+                    docker run --name ub-test ubuntu:20.04 sleep 4m
                 """
             }
         }
