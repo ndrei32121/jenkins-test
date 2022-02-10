@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sh(label: 'lint', script: '''
                     pwd
-                    ls -la
+                    ls -la ../
                 ''')
             }
         }
