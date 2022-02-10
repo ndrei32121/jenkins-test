@@ -9,11 +9,19 @@ pipeline {
         // }
         
     }
+    environment {
+        BASE_DIR = 'src/git/'
+    }
 
     stages {
         stage('Build') {
             steps {
                 runLinuxScript(scriptName: "app_checker.sh")
+            }
+        }
+        stage('Checkout'){
+            steps {
+                sh(label: 'lint', script: 'echo lint step')
             }
         }
     }
