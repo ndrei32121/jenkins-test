@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                runLinuxScript(name: "app_checker.sh")
+                runLinuxScript(scriptName: "app_checker.sh")
             }
         }
     }
