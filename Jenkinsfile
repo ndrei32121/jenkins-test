@@ -24,6 +24,8 @@ pipeline {
                 sh(label: 'lint', script: '''
                     pwd
                     ls -la ../
+                    hostname
+                    whoami
                 ''')
             }
         }
