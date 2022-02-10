@@ -13,12 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                printHello(name: "Andrey")
-                sh """
-                    cat /etc/*release*
-                    hostname
-                    docker run --rm --name ub-test ubuntu:20.04 sleep 30s
-                """
+                runLinuxScript(name: "app_checker.sh")
             }
         }
     }
