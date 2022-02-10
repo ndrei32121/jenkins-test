@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                printHello()
+                printHello(name: "Andrey")
                 sh """
                     cat /etc/*release*
                     hostname
