@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Checkout'){
             steps {
-                sh(label: 'lint', script: 'echo lint step')
+                sh(label: 'lint', script: 'pwd && ls -l')
             }
         }
     }
