@@ -21,7 +21,10 @@ pipeline {
         }
         stage('Checkout'){
             steps {
-                sh(label: 'lint', script: 'pwd && ls -l')
+                sh(label: 'lint', script: '''
+                    pwd
+                    ls -la
+                ''')
             }
         }
     }
