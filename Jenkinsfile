@@ -16,7 +16,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                runLinuxScript(scriptName: "app_checker.sh")
+                logStepsGroovy() {
+                    runLinuxScript(scriptName: "app_checker.sh")
+                }
+
             }
         }
         stage('Checkout'){
