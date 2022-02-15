@@ -36,5 +36,11 @@ pipeline {
                 ''')
             }
         }
+        post {
+            dir("~/") { 
+                archiveArtifacts artifacts: './*.log', fingerprint: true
+            }
+            
+        }
     }
 }
