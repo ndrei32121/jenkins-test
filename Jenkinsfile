@@ -39,9 +39,7 @@ pipeline {
     }
     post {
         always {
-            dir("~/") { 
-                archiveArtifacts artifacts: 'logGroovyFile.log', fingerprint: true
-            }
+            archiveArtifacts artifacts: 'logGroovyFile.log', fingerprint: true
         }
     }
 }
