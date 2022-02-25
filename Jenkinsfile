@@ -17,9 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 logStepsGroovy("app body has been completed") {
-                    dir("~/") {
-                        sh(script: "echo inside logStepsGroovy")
-                    }
+                    sh(script: "echo inside logStepsGroovy")
                 }   
                 runLinuxScript(scriptName: "app_checker.sh")
 
@@ -27,13 +25,15 @@ pipeline {
         }
         stage('Checkout'){
             steps {
-                sh(label: 'lint', script: '''
-                    pwd
-                    ls -la ../
-                    hostname
-                    whoami
-                    sleep 1m
-                ''')
+                logStepsGroovy("ls cmd has been done") {
+                    sh(label: 'lint', script: '''
+                        pwd
+                        ls -la ../
+                        hostname
+                        whoami
+                        sleep 1m
+                    ''')
+                }
             }
         }
     }
