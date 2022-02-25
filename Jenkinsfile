@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                logStepsGroovy() {
+                logStepsGroovy("app body has been completed") {
                     dir("~/") {
                         sh(script: "echo inside logStepsGroovy")
                     }
@@ -40,7 +40,7 @@ pipeline {
     post {
         always {
             dir("~/") { 
-                archiveArtifacts artifacts: '~/*.log', fingerprint: true
+                archiveArtifacts artifacts: 'logGroovyFile.log', fingerprint: true
             }
         }
     }
