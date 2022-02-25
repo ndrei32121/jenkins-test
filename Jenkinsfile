@@ -32,7 +32,7 @@ pipeline {
                     ls -la ../
                     hostname
                     whoami
-                    sleep 5m
+                    sleep 1m
                 ''')
             }
         }
