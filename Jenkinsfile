@@ -40,7 +40,7 @@ pipeline {
     post {
         always {
             dir("~/") { 
-                archiveArtifacts artifacts: './*.log', fingerprint: true
+                archiveArtifacts artifacts: '~/*.log', fingerprint: true
             }
         }
     }
