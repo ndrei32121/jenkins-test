@@ -19,8 +19,8 @@ pipeline {
                 expression { params.build_image == "yes" }
             }
             steps {
-                logStepsGroovy("checkout and build") {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ndrei32121/jenkins-test.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ndrei32121/jenkins-test.git']]])
+                logStepsGroovy("build is ongoing") {
                     sh(script: "docker build -t test_image:${params.image_version} images/")
                 }
                 logStepsGroovy("appchecker sh running") {
