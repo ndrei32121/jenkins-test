@@ -14,12 +14,18 @@ pipeline {
     }
 
     stages {
+        when {
+            expression { params.build_image == "yes" }
+        }
         stage('Build') {
             steps {
-                logStepsGroovy() {
-                    sh(script: "echo outside logStepsGroovy")
-                }   
-                runLinuxScript(scriptName: "app_checker.sh")
+                logStepsGroovy("checkout and build") {
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ndrei32121/jenkins-test.git']]])
+                    sh(script: "docker build -t test_image:${params.image_version} images/")
+                }
+                logStepsGroovy("appchecker sh running") {
+                    runLinuxScript(scriptName: "app_checker.sh")
+                }
 
             }
         }
@@ -31,7 +37,7 @@ pipeline {
                         ls -la ../
                         hostname
                         whoami
-                        sleep 1m
+                        
                     ''')
                 }
             }
