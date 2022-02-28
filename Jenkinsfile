@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Checkout'){
             steps {
-                logStepsGroovy() {
+                logStepsGroovy("some test commands are running") {
                     sh(label: 'lint', script: '''
                         pwd
                         ls -la ../
