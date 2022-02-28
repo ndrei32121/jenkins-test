@@ -14,10 +14,10 @@ pipeline {
     }
 
     stages {
-        when {
-            expression { params.build_image == "yes" }
-        }
         stage('Build') {
+            when {
+                expression { params.build_image == "yes" }
+            }
             steps {
                 logStepsGroovy("checkout and build") {
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ndrei32121/jenkins-test.git']]])
